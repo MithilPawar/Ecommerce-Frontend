@@ -1,0 +1,264 @@
+.page {
+  min-height: 100vh;
+  padding: 1.5rem;
+  color: #1f1d1a;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(255, 198, 112, 0.45) 0%, rgba(255, 198, 112, 0) 40%),
+    radial-gradient(circle at 80% 20%, rgba(76, 185, 146, 0.3) 0%, rgba(76, 185, 146, 0) 35%),
+    linear-gradient(160deg, #fff4dd 0%, #f7f7f2 45%, #eef3eb 100%);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  animation: slideDown 500ms ease-out;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+  font-weight: 700;
+  color: #de6a00;
+}
+
+h1 {
+  margin: 0.3rem 0;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 35rem;
+  color: #4a4a4a;
+}
+
+.authBox {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(31, 29, 26, 0.12);
+  border-radius: 1rem;
+  padding: 0.9rem;
+  backdrop-filter: blur(6px);
+}
+
+.modeSwitch {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.modeSwitch button,
+.authForm button,
+.card button,
+.cart button {
+  border: none;
+  border-radius: 0.8rem;
+  padding: 0.55rem 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.modeSwitch button.active,
+.authForm button,
+.card button,
+.cart button {
+  background: #0f6c54;
+  color: #fff;
+}
+
+.modeSwitch button:hover,
+.authForm button:hover,
+.card button:hover,
+.cart button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+}
+
+.authForm {
+  display: grid;
+  gap: 0.55rem;
+}
+
+input,
+select {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d2d0cb;
+  border-radius: 0.7rem;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+  background: #fff;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.2rem;
+}
+
+.catalog,
+.cart {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(31, 29, 26, 0.13);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0.7rem;
+  margin-bottom: 0.9rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 0.9rem;
+}
+
+.card {
+  display: grid;
+  gap: 0.5rem;
+  border: 1px solid #e1ddd4;
+  border-radius: 1rem;
+  padding: 0.8rem;
+  background: #fff;
+  animation: fadeIn 320ms ease;
+}
+
+.card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 0.8rem;
+  background: #f2f2f2;
+}
+
+.card h3,
+.card p {
+  margin: 0;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart h2,
+.orderForm h3 {
+  margin-top: 0;
+}
+
+.cart ul {
+  padding: 0;
+  list-style: none;
+  margin: 0.8rem 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.cart li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.7rem;
+  border-bottom: 1px solid #ece9e2;
+  padding-bottom: 0.5rem;
+}
+
+.cart li p,
+.cart li small {
+  margin: 0;
+}
+
+.cart li button {
+  margin-top: 0.35rem;
+  padding: 0.35rem 0.55rem;
+  font-size: 0.82rem;
+}
+
+.total {
+  font-weight: 800;
+}
+
+.orderForm {
+  margin-top: 0.8rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.hint {
+  color: #67605a;
+  font-size: 0.95rem;
+}
+
+.toast {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  max-width: 22rem;
+  background: #1f1d1a;
+  color: #fff;
+  padding: 0.65rem 0.8rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 16px 24px rgba(0, 0, 0, 0.22);
+  animation: toastIn 250ms ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toastIn {
+  from {
+    transform: translateY(7px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 980px) {
+  .topbar {
+    flex-direction: column;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .toast {
+    left: 1rem;
+    right: 1rem;
+    max-width: none;
+  }
+}
