@@ -6,6 +6,7 @@ import AuthModal from './components/auth/AuthModal'
 import ProtectedRoute from './routes/ProtectedRoute'
 import HomePage from './pages/HomePage'
 import ProductsPage from './pages/ProductsPage'
+import ProductDetailPage from './pages/ProductDetailPage'
 import CartPage from './pages/CartPage'
 import OrdersPage from './pages/OrdersPage'
 import AdminPanelPage from './pages/AdminPanelPage'
@@ -31,6 +32,14 @@ export default function App() {
           element={
             <Layout>
               <ProductsPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/products/:id"
+          element={
+            <Layout>
+              <ProductDetailPage />
             </Layout>
           }
         />
