@@ -23,8 +23,9 @@ export default function AdminLayout({ children }) {
 
   return (
     <div className="min-h-screen bg-slate-100 text-slate-900">
-      <div className="mx-auto max-w-7xl px-4 py-6 grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-6">
-        <aside className="bg-white border border-slate-200 rounded-2xl p-4 h-fit">
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-6">
+        <div className="flex flex-col lg:flex-row gap-6 lg:items-start">
+          <aside className="w-full lg:w-60 lg:shrink-0 bg-white border border-slate-200 rounded-2xl p-4 h-fit">
           <div className="pb-4 border-b border-slate-100">
             <p className="text-xs uppercase tracking-wider text-slate-500">Admin Workspace</p>
             <p className="mt-1 font-semibold text-slate-800 truncate">{displayName}</p>
@@ -65,9 +66,10 @@ export default function AdminLayout({ children }) {
               Logout
             </button>
           </div>
-        </aside>
+          </aside>
 
-        <main>{children}</main>
+          <main className="flex-1 min-w-0 w-full">{children}</main>
+        </div>
       </div>
     </div>
   )

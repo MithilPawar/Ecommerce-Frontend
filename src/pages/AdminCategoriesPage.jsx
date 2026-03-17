@@ -91,7 +91,7 @@ export default function AdminCategoriesPage() {
 
   return (
     <div className="space-y-4">
-      <div className="max-w-5xl">
+      <div className="w-full">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Categories</h1>
           <p className="text-slate-600 mt-1 text-sm">Create, edit, and delete categories.</p>
