@@ -7,6 +7,8 @@ import HomePage from './pages/HomePage'
 import ProductsPage from './pages/ProductsPage'
 import CartPage from './pages/CartPage'
 import OrdersPage from './pages/OrdersPage'
+import AdminProductsPage from './pages/AdminProductsPage'
+import AdminCategoriesPage from './pages/AdminCategoriesPage'
 import './App.css'
 
 export default function App() {
@@ -29,6 +31,22 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <OrdersPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/products"
+            element={
+              <ProtectedRoute requireAdmin>
+                <AdminProductsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/categories"
+            element={
+              <ProtectedRoute requireAdmin>
+                <AdminCategoriesPage />
               </ProtectedRoute>
             }
           />

@@ -12,19 +12,29 @@ export function AuthProvider({ children }) {
 
   const login = useCallback(async (credentials) => {
     const data = await apiLogin(credentials)
+    const normalizedUser = {
+      name: data.name || null,
+      email: data.email || credentials.email,
+      role: data.role || null,
+    }
     localStorage.setItem('token', data.token)
-    localStorage.setItem('user', JSON.stringify({ email: data.email }))
+    localStorage.setItem('user', JSON.stringify(normalizedUser))
     setToken(data.token)
-    setUser({ email: data.email })
+    setUser(normalizedUser)
     return data
   }, [])
 
   const register = useCallback(async (credentials) => {
     const data = await apiRegister(credentials)
+    const normalizedUser = {
+      name: data.name || credentials.name || null,
+      email: data.email || credentials.email,
+      role: data.role || null,
+    }
     localStorage.setItem('token', data.token)
-    localStorage.setItem('user', JSON.stringify({ email: data.email }))
+    localStorage.setItem('user', JSON.stringify(normalizedUser))
     setToken(data.token)
-    setUser({ email: data.email })
+    setUser(normalizedUser)
     return data
   }, [])
 
@@ -41,6 +51,7 @@ export function AuthProvider({ children }) {
   return (
     <AuthContext.Provider value={{
       token, user, isLoggedIn: !!token,
+      isAdmin: user?.role === 'ADMIN',
       login, register, logout,
       authModalOpen, openAuthModal, closeAuthModal,
     }}>
