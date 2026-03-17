@@ -11,6 +11,7 @@ export default function Navbar() {
   const [query, setQuery] = useState('')
   const [mobileOpen, setMobileOpen] = useState(false)
   const displayName = user?.name || user?.email?.split('@')[0] || 'Profile'
+  const profileRoute = isAdmin ? '/admin' : '/orders'
   
 
   function handleSearch(e) {
@@ -54,8 +55,6 @@ export default function Navbar() {
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
             <Link to="/" className="hover:text-indigo-600 transition-colors">Home</Link>
             <Link to="/products" className="hover:text-indigo-600 transition-colors">Products</Link>
-            {isAdmin && <Link to="/admin/products" className="hover:text-indigo-600 transition-colors">Admin Products</Link>}
-            {isAdmin && <Link to="/admin/categories" className="hover:text-indigo-600 transition-colors">Admin Categories</Link>}
           </nav>
 
           {/* Right side */}
@@ -73,9 +72,9 @@ export default function Navbar() {
             {/* Auth */}
             {isLoggedIn ? (
               <div className="hidden sm:flex items-center gap-3">
-                <Link to="/orders" className="flex items-center gap-1.5 text-sm font-medium text-gray-700 hover:text-indigo-600 transition-colors">
+                <Link to={profileRoute} className="flex items-center gap-1.5 text-sm font-medium text-gray-700 hover:text-indigo-600 transition-colors">
                   <User size={15} />
-                  <span>{displayName}</span>
+                  <span>{isAdmin ? 'Admin' : displayName}</span>
                 </Link>
                 <button
                   onClick={handleLogout}
@@ -117,11 +116,9 @@ export default function Navbar() {
             </form>
             <Link to="/" onClick={() => setMobileOpen(false)} className="block px-2 py-1.5 text-sm text-gray-700 hover:text-indigo-600">Home</Link>
             <Link to="/products" onClick={() => setMobileOpen(false)} className="block px-2 py-1.5 text-sm text-gray-700 hover:text-indigo-600">Products</Link>
-            {isAdmin && <Link to="/admin/products" onClick={() => setMobileOpen(false)} className="block px-2 py-1.5 text-sm text-gray-700 hover:text-indigo-600">Admin Products</Link>}
-            {isAdmin && <Link to="/admin/categories" onClick={() => setMobileOpen(false)} className="block px-2 py-1.5 text-sm text-gray-700 hover:text-indigo-600">Admin Categories</Link>}
             {isLoggedIn ? (
               <>
-                <Link to="/orders" onClick={() => setMobileOpen(false)} className="block px-2 py-1.5 text-sm text-gray-700 hover:text-indigo-600">My Orders</Link>
+                <Link to={profileRoute} onClick={() => setMobileOpen(false)} className="block px-2 py-1.5 text-sm text-gray-700 hover:text-indigo-600">{isAdmin ? 'Admin Dashboard' : 'My Orders'}</Link>
                 <button onClick={handleLogout} className="block px-2 py-1.5 text-sm text-red-500">Logout</button>
               </>
             ) : (

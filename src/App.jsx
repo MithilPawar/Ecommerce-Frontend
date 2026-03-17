@@ -1,57 +1,101 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import Layout from './components/layout/Layout'
+import AdminLayout from './components/layout/AdminLayout'
 import AuthModal from './components/auth/AuthModal'
 import ProtectedRoute from './routes/ProtectedRoute'
 import HomePage from './pages/HomePage'
 import ProductsPage from './pages/ProductsPage'
 import CartPage from './pages/CartPage'
 import OrdersPage from './pages/OrdersPage'
+import AdminPanelPage from './pages/AdminPanelPage'
 import AdminProductsPage from './pages/AdminProductsPage'
 import AdminCategoriesPage from './pages/AdminCategoriesPage'
+import AdminUsersPage from './pages/AdminUsersPage'
 import './App.css'
 
 export default function App() {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/products" element={<ProductsPage />} />
-          <Route
-            path="/cart"
-            element={
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <HomePage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/products"
+          element={
+            <Layout>
+              <ProductsPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <Layout>
               <ProtectedRoute>
                 <CartPage />
               </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/orders"
-            element={
+            </Layout>
+          }
+        />
+        <Route
+          path="/orders"
+          element={
+            <Layout>
               <ProtectedRoute>
                 <OrdersPage />
               </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/products"
-            element={
-              <ProtectedRoute requireAdmin>
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute requireAdmin>
+              <AdminLayout>
+                <AdminPanelPage />
+              </AdminLayout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/products"
+          element={
+            <ProtectedRoute requireAdmin>
+              <AdminLayout>
                 <AdminProductsPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/categories"
-            element={
-              <ProtectedRoute requireAdmin>
+              </AdminLayout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/users"
+          element={
+            <ProtectedRoute requireAdmin>
+              <AdminLayout>
+                <AdminUsersPage />
+              </AdminLayout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/categories"
+          element={
+            <ProtectedRoute requireAdmin>
+              <AdminLayout>
                 <AdminCategoriesPage />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
-      </Layout>
+              </AdminLayout>
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
 
       <AuthModal />
       <Toaster

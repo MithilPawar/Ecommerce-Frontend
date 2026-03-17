@@ -18,7 +18,11 @@ export default function AuthModal() {
     if (redirect) {
       sessionStorage.removeItem('postLoginRedirect')
       navigate(redirect)
+      return
     }
+
+    const storedUser = JSON.parse(localStorage.getItem('user') || '{}')
+    navigate(storedUser?.role === 'ADMIN' ? '/admin' : '/')
   }
 
   return (

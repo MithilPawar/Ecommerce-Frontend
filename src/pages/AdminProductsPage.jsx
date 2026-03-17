@@ -107,15 +107,15 @@ export default function AdminProductsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 py-8 space-y-6">
+    <div className="space-y-4">
+      <div className="max-w-6xl">
         <div>
-          <h1 className="text-3xl font-extrabold text-gray-900">Admin Product Manager</h1>
-          <p className="text-gray-600 mt-2">Create, edit, and delete products from the catalog.</p>
+          <h1 className="text-2xl font-bold text-slate-900">Products</h1>
+          <p className="text-slate-600 mt-1 text-sm">Create, edit, and delete products.</p>
         </div>
 
-        <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-5">
-          <h2 className="text-lg font-bold text-gray-900 mb-4">
+        <section className="bg-white border border-slate-200 rounded-xl p-5">
+          <h2 className="text-base font-semibold text-slate-900 mb-4">
             {isEditing ? 'Edit Product' : 'Create Product'}
           </h2>
 
@@ -191,8 +191,8 @@ export default function AdminProductsPage() {
           </form>
         </section>
 
-        <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-5">
-          <h2 className="text-lg font-bold text-gray-900 mb-4">All Products</h2>
+        <section className="bg-white border border-slate-200 rounded-xl p-5">
+          <h2 className="text-base font-semibold text-slate-900 mb-4">All Products</h2>
 
           {loading ? (
             <div className="flex justify-center py-10">

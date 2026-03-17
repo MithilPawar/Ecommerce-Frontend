@@ -90,15 +90,15 @@ export default function AdminCategoriesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-5xl mx-auto px-4 py-8 space-y-6">
+    <div className="space-y-4">
+      <div className="max-w-5xl">
         <div>
-          <h1 className="text-3xl font-extrabold text-gray-900">Admin Category Manager</h1>
-          <p className="text-gray-600 mt-2">Create, edit, and delete product categories.</p>
+          <h1 className="text-2xl font-bold text-slate-900">Categories</h1>
+          <p className="text-slate-600 mt-1 text-sm">Create, edit, and delete categories.</p>
         </div>
 
-        <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-5">
-          <h2 className="text-lg font-bold text-gray-900 mb-4">
+        <section className="bg-white border border-slate-200 rounded-xl p-5">
+          <h2 className="text-base font-semibold text-slate-900 mb-4">
             {isEditing ? 'Edit Category' : 'Create Category'}
           </h2>
 
@@ -131,8 +131,8 @@ export default function AdminCategoriesPage() {
           </form>
         </section>
 
-        <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-5">
-          <h2 className="text-lg font-bold text-gray-900 mb-4">All Categories</h2>
+        <section className="bg-white border border-slate-200 rounded-xl p-5">
+          <h2 className="text-base font-semibold text-slate-900 mb-4">All Categories</h2>
 
           {loading ? (
             <div className="flex justify-center py-10">
